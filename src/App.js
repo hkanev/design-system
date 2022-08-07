@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Route, Routes } from 'react-router-dom';
+import Loadable from 'react-loadable';
+
+import Navigation from 'Components/Navigation/Navigation';
+
+const Loading = () => <div> Loading... </div>;
+
+const Home=Loadable({
+  loader:()=>import('./Pages/Home/Home'),
+  loading:Loading
+});
+const Users=Loadable({
+  loader:()=>import('./Pages/Users/Users'),
+  loading:Loading
+});
+const Tracking=Loadable({
+  loader:()=>import('./Pages/Tracking/Tracking'),
+  loading:Loading
+});
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation/>
+      <Routes>
+        <Route path="/"  exact element={<Home />} />
+        <Route path="/users" exact element={<Users />} />
+        <Route path="/tracking" exact element={<Tracking />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
+
