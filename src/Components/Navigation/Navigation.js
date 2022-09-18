@@ -1,15 +1,25 @@
-import React from 'react'
-import NavLink from 'Components/Navigation/NavLink'
-import './Navigation.scss'
+import React from "react";
+import NavLink from "Components/Navigation/NavLink";
+import "./Navigation.scss";
 
-const Navigation = () => {
+import Submenu from "./submenu";
+
+const Navigation = ({ mainNav, UserNavigation, className }) => {
   return (
-      <nav className='top-navigation'>
-        <NavLink to="/" end>Home</NavLink>
-        <NavLink to="/users" end>Users</NavLink>
-        <NavLink to="/tracking" end>Tracking</NavLink>
-      </nav>
-  )
-}
+    <nav className={`top-navigation ${className}`}>
+      {mainNav.map((item) =>
+        item.subitems.length ? (
+          <Submenu item={item}></Submenu>
+        ) : (
+          <NavLink to={item.route} end className={item.class}>
+            {item.label}
+          </NavLink>
+        )
+      )}
 
-export default Navigation
+      {UserNavigation && <UserNavigation></UserNavigation>}
+    </nav>
+  );
+};
+
+export default Navigation;
