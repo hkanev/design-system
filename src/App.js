@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Loadable from "react-loadable";
 
 import Navigation from "Components/Navigation/Navigation";
+import UserNavigation from "Components/Navigation/UserNavigation";
+import { mainNav } from "Components/Navigation/conf";
 
 const Loading = () => <div> Loading... </div>;
 
@@ -21,12 +23,14 @@ const Tracking = Loadable({
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/users" exact element={<Users />} />
-        <Route path="/tracking" exact element={<Tracking />} />
-      </Routes>
+      <Navigation mainNav={mainNav} />
+      <div className="main"></div>
+
+      {/*<Routes>*/}
+      {/*  <Route path="/" exact element={<Home />} />*/}
+      {/*  <Route path="/users" exact element={<Users />} />*/}
+      {/*  <Route path="/tracking" exact element={<Tracking />} />*/}
+      {/*</Routes>*/}
     </div>
   );
 }
