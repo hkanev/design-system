@@ -23,17 +23,18 @@ const Tracking = Loadable({
 function App() {
   return (
     <div className="App">
-      <Navigation
-        mainNav={mainNav}
-        UserNavigation={UserNavigation}
-        className="red"
-      />
+        <Navigation
+            mainNav={mainNav}
+        />
+      <div className="main">
+      </div>
 
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/users" exact element={<Users />} />
-        <Route path="/tracking" exact element={<Tracking />} />
-      </Routes>
+
+      {/*<Routes>*/}
+      {/*  <Route path="/" exact element={<Home />} />*/}
+      {/*  <Route path="/users" exact element={<Users />} />*/}
+      {/*  <Route path="/tracking" exact element={<Tracking />} />*/}
+      {/*</Routes>*/}
     </div>
   );
 }

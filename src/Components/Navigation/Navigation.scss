@@ -1,20 +1,18 @@
-.top-navigation {
-  display: flex;
-  justify-content: center;
+.navigation {
+  height: 100vh;
+  background: #fafafa;
 
   a {
-    text-decoration: none;
-    padding: 1rem;
-    color: var(--font-color);
+    display: block;
+  }
+  .nav-header {
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    &:hover {
-      background: #ddd;
-    }
-
-    &.active {
-      font-weight: 600;
-      text-decoration: underline;
-    }
+  .nav-hamburger {
+    color: #636365;
   }
 }
-
