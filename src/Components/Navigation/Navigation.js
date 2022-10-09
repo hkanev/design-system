@@ -13,16 +13,19 @@ const Navigation = ({ mainNav, UserNavigation, className }) => {
           <Logo/>
       </div>
 
-      {mainNav.map((item) =>
-        item.subitems.length ? (
-          <Submenu item={item}></Submenu>
-        ) : (
-          <NavLink to={item.route} end className={item.class}>
-            {item.icon }
-            {item.label}
-          </NavLink>
-        )
-      )}
+      <div className="menu">
+        {mainNav.map((item, index) =>
+          item.subitems.length ? (
+            <Submenu key={index} item={item}></Submenu>
+          ) : (
+            <NavLink key={index} to={item.route} end className={item.class}>
+              {item.icon }
+              {item.label}
+            </NavLink>
+          )
+        )}
+      </div>
+ 
 
       {UserNavigation && <UserNavigation></UserNavigation>}
     </nav>

@@ -1,10 +1,52 @@
 .navigation {
   height: 100vh;
   background: #fafafa;
+  color: #636365;
 
-  a {
-    display: block;
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      svg {
+        padding-right: 0.5rem;
+      }
+      flex-basis: 100%;
+      font-size: 1.2rem;
+      display: block;
+      color: #636365;
+      text-decoration: none;
+      padding: 0.5rem 1.2rem;
+      
+      &:hover {
+        background: #fff;
+        // border: 1px solid #636365;
+        border-radius: 0.6rem;
+      }
+
+      &.active {
+        background: #fff;
+        // border: 1px solid #636365;
+        border-radius: 0.6rem;
+      }
+    }
+
+ 
   }
+
+  .submenu-link {
+    padding-bottom: 0.2rem;
+  }
+
+  .sub-menu {
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+
   .nav-header {
     padding: 0.5rem 1rem;
     display: flex;
@@ -12,7 +54,5 @@
     align-items: center;
   }
 
-  .nav-hamburger {
-    color: #636365;
-  }
+ 
 }
