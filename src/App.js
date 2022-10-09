@@ -4,6 +4,8 @@ import Loadable from "react-loadable";
 import Navigation from "Components/Navigation/Navigation";
 import UserNavigation from "Components/Navigation/UserNavigation";
 import { mainNav } from "Components/Navigation/conf";
+import { formConf } from "Components/Form/conf";
+import { Form } from "Components/Form/Form";
 
 const Loading = () => <div> Loading... </div>;
 
@@ -24,7 +26,9 @@ function App() {
   return (
     <div className="App">
       <Navigation mainNav={mainNav} />
-      <div className="main"></div>
+      <div className="main">
+        <Form formData={formConf} />
+      </div>
 
       {/*<Routes>*/}
       {/*  <Route path="/" exact element={<Home />} />*/}

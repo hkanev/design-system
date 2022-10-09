@@ -2,12 +2,12 @@ import React from "react";
 import "./Form.scss";
 import FormLabel from "./FormLabel";
 
-const TextField = (props) => {
+const TextField = ({data}) => {
   return (
-    <div>
-      <FormLabel></FormLabel>
-      <input className="field textarea" placeholder={props.placeholder} />
-    </div>
+  <div>
+    <label for={data.name}>{data.label} {data.required ? '*' : ''}</label>
+    <textarea name={data.name} id={data.name}/>
+  </div>
   );
 };
 

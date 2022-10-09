@@ -1,22 +1,38 @@
-import React from "react";
+import {React, useState} from "react";
 import FormInput from "./FormInput";
 import Textarea from "./Textarea";
-import "./From.scss";
+import "./Form.scss";
 
-const Form = (props) => {
+export const Form = ({formData}) => {
+  const [formState, setFormState] = useState(() => formData);
+  function updateValue(value, element) {
+      setFormState(   
+      formState.map((obj) => {
+        if (obj.name === element.name) {
+          obj.value = value;
+        }
+
+        return obj;
+      }))
+  }
+
+
+  function loadInputType(data) {
+    switch(data.type) {
+      case 'input':
+       return <FormInput element={data} updateValue={updateValue}/>
+      case 'textarea':
+       return <Textarea data={data}/>
+    }
+  }
+
   return (
     <form className="form">
-      <div className="form-group">
-        <FormInput />
-        <FormInput />
-      </div>
-      <div className="form-group">
-        <FormInput />
-        <FormInput />
-      </div>
-      <div className="form-group">
-        <Textarea />
-      </div>
-    </form>
+    {formData.map((item, index) =>
+      (
+        loadInputType(item)
+      ) 
+    )}
+  </form>
   );
 };
