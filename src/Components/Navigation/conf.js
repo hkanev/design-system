@@ -1,6 +1,7 @@
+import { FaHeart } from "react-icons/fa";
 export const mainNav = [
   {
-    icon: "",
+    icon: <FaHeart/>,
     label: "Home",
     route: "/",
     active: false,
