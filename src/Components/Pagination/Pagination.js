@@ -3,16 +3,17 @@ import "./Pagination.scss";
 
 export default function Pagination() {
   const [pagination, setPagination] = useState({
-    totalItems: 18,
+    totalItems: 24,
     currentPage: 3,
     itemsPerPage: 6,
   });
 
-  function changeCurrentPage() {
-    setPagination({
+  function changeCurrentPage(newPage) {
+    setPagination(() => {
+      return {
       ...pagination,
-      currentPage: 5,
-    });
+      currentPage: newPage
+    }});
   }
 
   function renderPages(pagination) {
@@ -34,7 +35,7 @@ export default function Pagination() {
     }
 
     for (let i = firstVisiblePage; i <= lastVisiblePage; i++) {
-      content.push(<li onClick={alert(1)}>{i}</li>);
+      content.push(<li className={i == pagination.currentPage ? 'active' : ''} onClick={() => changeCurrentPage(i)}>{i}</li>);
     }
 
     return content;
