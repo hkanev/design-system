@@ -7,7 +7,7 @@ const ApiTest = () => {
     const [jokes, setJokes] = useState([]);
 
     useEffect(() => {
-        api.get('/facts')
+        api.get('/facts', { params: { page: 2   } })
             .then(response => setJokes(response.data.data))
             .catch(e => console.log(e));
     }, [])
