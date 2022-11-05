@@ -11,6 +11,14 @@ export const mainNav = [
   },
   {
     icon: "",
+    label: "Form",
+    route: "/form",
+    class: "",
+    "tooltip:": "",
+    subitems: [],
+  },
+  {
+    icon: "",
     label: "Users",
     route: "/users",
     class: "",
@@ -19,8 +27,8 @@ export const mainNav = [
   },
   {
     icon: "",
-    label: "Tracking",
-    route: "/tracking",
+    label: "Api",
+    route: "/api",
     class: "",
     "tooltip:": "",
     subitems: [],

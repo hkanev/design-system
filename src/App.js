@@ -2,10 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import Loadable from "react-loadable";
 
 import Navigation from "Components/Navigation/Navigation";
-import UserNavigation from "Components/Navigation/UserNavigation";
 import { mainNav } from "Components/Navigation/conf";
-import { formConf } from "Components/Form/conf";
-import { Form } from "Components/Form/Form";
+import FormPage from "./Pages/Form/Form";
+import ApiTest from "./Pages/ApiTest/ApiTest";
+
 
 const Loading = () => <div> Loading... </div>;
 
@@ -18,26 +18,22 @@ const Users = Loadable({
   loading: Loading,
 });
 const Tracking = Loadable({
-  loader: () => import("./Pages/Tracking/Tracking"),
+  loader: () => import("./Pages/ApiTest/ApiTest"),
   loading: Loading,
 });
 
 function App() {
-  function submitForm(formState) {
-    console.log(formState);
-  }
+
   return (
     <div className="App">
       <Navigation mainNav={mainNav} />
-      <div className="main">
-        <Form formData={formConf} submitForm={submitForm} />
-      </div>
 
-      {/*<Routes>*/}
-      {/*  <Route path="/" exact element={<Home />} />*/}
-      {/*  <Route path="/users" exact element={<Users />} />*/}
-      {/*  <Route path="/tracking" exact element={<Tracking />} />*/}
-      {/*</Routes>*/}
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/users" exact element={<Users />} />
+        <Route path="/api" exact element={<ApiTest />} />
+        <Route path="/form" exact element={<FormPage />} />
+      </Routes>
     </div>
   );
 }
