@@ -2,6 +2,11 @@ $fontColor: #28224b;
 :root {
   --font-color: red;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Inter";
@@ -10,7 +15,6 @@ body {
 }
 
 .main {
-
   height: 100vh;
 }
 

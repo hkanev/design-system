@@ -23,11 +23,14 @@ const Tracking = Loadable({
 });
 
 function App() {
+  function submitForm(formState) {
+    console.log(formState);
+  }
   return (
     <div className="App">
       <Navigation mainNav={mainNav} />
       <div className="main">
-        <Form formData={formConf} />
+        <Form formData={formConf} submitForm={submitForm} />
       </div>
 
       {/*<Routes>*/}

@@ -2,12 +2,22 @@ import React from "react";
 import "./Form.scss";
 import FormLabel from "./FormLabel";
 
-const TextField = ({data}) => {
+const TextField = ({ element, updateValue }) => {
+  function changeValue(e) {
+    updateValue(e.target.value, element);
+  }
   return (
-  <div>
-    <label for={data.name}>{data.label} {data.required ? '*' : ''}</label>
-    <textarea name={data.name} id={data.name}/>
-  </div>
+    <div>
+      <label htmlFor={element.name} className="field_label">
+        {element.label} {element.required ? "*" : ""}
+      </label>
+      <textarea
+        onChange={changeValue}
+        name={element.name}
+        id={element.name}
+        className="textarea"
+      />
+    </div>
   );
 };
 
